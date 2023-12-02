@@ -18,7 +18,16 @@ export default class Game {
 
   draw() {
     this.entities.forEach((entity) => {
-      entity.drawableSprite.drawSprite(this.context);
+      console.log(typeof entity.sprite);
+
+      if (
+        typeof entity.sprite !== "object" ||
+        typeof entity.sprite.draw !== "function"
+      ) {
+        throw new Error("Entity must have a sprite");
+      }
+
+      entity.sprite.draw(this.context);
     });
   }
 

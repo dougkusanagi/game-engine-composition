@@ -1,13 +1,13 @@
 import { Vec2 } from "./math";
 
-export default class DrawSquareSprite {
+export default class SquareSprite {
   constructor({ object, size = new Vec2(), color = "red" }) {
     this.object = object;
     this.size = size;
     this.color = color;
   }
 
-  drawSprite(context) {
+  draw(context) {
     context.fillStyle = this.color;
     context.fillRect(
       this.object.position.x,
