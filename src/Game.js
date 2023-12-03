@@ -14,10 +14,10 @@ export default class Game {
   update() {
     this.canvas.clear();
     this.updateEntities();
-    this.draw();
+    this.drawEntities();
   }
 
-  draw() {
+  drawEntities() {
     this.entities.forEach((entity) => {
       entity.sprite.draw(this.canvas.context);
     });
