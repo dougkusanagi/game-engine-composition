@@ -4,7 +4,7 @@ export default class Entity {
     this.velocity = velocity;
   }
 
-  move(deltaTime) {
+  update(deltaTime) {
     this.position.x += this.velocity.x * deltaTime;
     this.position.y += this.velocity.y * deltaTime;
   }
