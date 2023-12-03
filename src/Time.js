@@ -3,9 +3,11 @@ export default class Time {
     this.game = game_object;
     this.last_time = 0;
     this.current_time = 0;
+    this.delta_time = 0;
   }
 
-  start() {
+  start(game_object) {
+    this.game_object = game_object;
     this.update(0);
   }
 
@@ -13,6 +15,8 @@ export default class Time {
     this.last_time = this.current_time;
     this.current_time = time_stamp;
     this.delta_time = (this.current_time - this.last_time) / 1000;
+    this.game_object.update();
+
     requestAnimationFrame(this.update.bind(this));
   }
 

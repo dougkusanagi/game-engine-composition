@@ -4,14 +4,11 @@ export default class Game {
   constructor(canvas_object) {
     this.canvas = canvas_object;
     this.entities = [];
-    this.delta_time = 0;
-
     this.time = new Time(this);
   }
 
   start() {
-    this.time.start();
-    this.update();
+    this.time.start(this);
   }
 
   update() {
@@ -32,7 +29,7 @@ export default class Game {
 
   updateEntities() {
     this.entities.map((entity) => {
-      entity.update(this.delta_time);
+      entity.update(this.time.delta_time);
     });
   }
 }
