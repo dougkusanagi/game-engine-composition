@@ -4,7 +4,13 @@ export default class Entity {
     this.velocity = velocity;
   }
 
-  update(deltaTime) {
+  update({ deltaTime, gravity }) {
+    this.velocity.y += gravity.y;
+
+    if (this.velocity.y > this.max_gravity) {
+      this.velocity.y = this.max_gravity;
+    }
+
     this.position.x += this.velocity.x * deltaTime;
     this.position.y += this.velocity.y * deltaTime;
   }

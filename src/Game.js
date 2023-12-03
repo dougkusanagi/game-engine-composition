@@ -1,10 +1,15 @@
 import Time from "./Time";
+import { Vec2 } from "./math";
 
 export default class Game {
   constructor(canvas_object) {
     this.canvas = canvas_object;
     this.entities = [];
     this.time = new Time(this);
+    this.gravity = new Vec2(0, 2);
+    this.max_gravity = 10;
+
+    this.start();
   }
 
   start() {
@@ -29,7 +34,10 @@ export default class Game {
 
   updateEntities() {
     this.entities.map((entity) => {
-      entity.update(this.time.delta_time);
+      entity.update({
+        deltaTime: this.time.delta_time,
+        gravity: this.gravity,
+      });
     });
   }
 }
