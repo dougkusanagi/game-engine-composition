@@ -1,3 +1,4 @@
+import Entity from "./Entity";
 import Player from "./Player";
 import SquareSprite from "./SquareSprite";
 import { Vec2 } from "./math";
@@ -8,9 +9,14 @@ export const createPlayer = function ({
 } = {}) {
   const player = new Player({ position, velocity });
 
+  player.entity = new Entity({
+    position,
+    velocity,
+  });
+
   player.sprite = new SquareSprite({
-    entity: player,
-    size: new Vec2(20, 40),
+    object: player,
+    size: new Vec2(60, 40),
     color: "#443377",
   });
 
