@@ -10,8 +10,8 @@ export default class SquareSprite {
   draw(canvas_context) {
     canvas_context.fillStyle = this.color;
     canvas_context.fillRect(
-      this.object.entity.position.x,
-      this.object.entity.position.y,
+      this.object.position.x,
+      this.object.position.y,
       this.size.x,
       this.size.y
     );
